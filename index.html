@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<head>
+    <title>Flagquiz</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</head>
+<body>
+    <center><div id="quiz">
+        <h1>Flagquiz</h1>
+        <br>
+        <br>
+        <img id="image" class="flag-image">
+        <li>
+            <input type="radio" name="answer" id="a" class="answer">
+            <label for="a" id="a_text">Answer</label>
+        </li>
+
+        <li>
+            <input type="radio" name="answer" id="b" class="answer">
+            <label for="b" id="b_text">Answer</label>
+        </li>
+
+        <li>
+            <input type="radio" name="answer" id="c" class="answer">
+            <label for="c" id="c_text">Answer</label>
+        </li>
+
+        <li>
+            <input type="radio" name="answer" id="d" class="answer">
+            <label for="d" id="d_text">Answer</label>
+        </li>
+        <button type="submit" id="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            <i class="material-icons">done</i> Submit
+        </button>
+    </div></center>
+</body>
+<script>
+    const quizData = [
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Brazil.jpg",
+        a: "Germany",
+        b: "Great Britian",
+        c: "Russia",
+        d: "Brazil",
+        correct: "Brazil",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Democratic_Republic_of_the_Congo.jpg",
+        a: "United States",
+        b: "Democratic Republic of Congo",
+        c: "Maldives",
+        d: "Malta",
+        correct: "b",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Panama.jpg",
+        a: "Panama",
+        b: "New Caledonia",
+        c: "Colombia",
+        d: "Switzerland",
+        correct: "a",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/United_States.jpg",
+        a: "China",
+        b: "Syria",
+        c: "Belgium",
+        d: "United States",
+        correct: "d",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Germany.jpg",
+        a: "Germany",
+        b: "Belgium",
+        c: "Russia",
+        d: "Austria",
+        correct: "a",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Russia.jpg",
+        a: "Ukraine",
+        b: "Russia",
+        c: "Netherlands",
+        d: "Slovakia",
+        correct: "b",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/North_Korea.jpg",
+        a: "Niger",
+        b: "Nigeria",
+        c: "South Korea",
+        d: "North Korea",
+        correct: "d",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Egypt.jpg",
+        a: "Nigeria",
+        b: "Egypt",
+        c: "Iraq",
+        d: "United Kingdom",
+        correct: "b"
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Iraq.jpg",
+        a: "Iraq",
+        b: "Egypt",
+        c: "Hungary",
+        d: "Ukraine",
+        correct: "a",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Afghanistan.jpg",
+        a: "Afghanistan",
+        b: "Nigeria",
+        c: "Switzerland",
+        d: "Turkey",
+        correct: "a",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Canada.jpg",
+        a: "Canada",
+        b: "United States",
+        c: "United Kingdom",
+        d: "China",
+        correct: "a",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/France.jpg",
+        a: "Russia",
+        b: "France",
+        c: "Spain",
+        d: "Slovakia",
+        correct: "b",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Italy.jpg",
+        a: "Austria",
+        b: "Hungary",
+        c: "Spain",
+        d: "Italy",
+        correct: "d",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/China.jpg",
+        a: "Bangladesh",
+        b: "Russia",
+        c: "China",
+        d: "Japan",
+        correct: "c",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Turkey.jpg",
+        a: "Turkey",
+        b: "China",
+        c: "Bangladesch",
+        d: "North Korea",
+        correct: "a",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Spain.jpg",
+        a: "Iceland",
+        b: "Irland",
+        c: "Spain",
+        d: "Italia",
+        correct: "c",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Japan.jpg",
+        a: "Japan",
+        b: "Bangladesch",
+        c: "China",
+        d: "Russia",
+        correct: "a",
+    },
+    {
+        image: "https://www.sciencekids.co.nz/images/pictures/flags680/Bangladesch.jpg",
+        a: "Japan",
+        b: "China",
+        c: "Spain",
+        d: "Bangladesch",
+        correct: "d",
+    },
+
+];
+
+const quiz= document.getElementById('quiz')
+const answerEls = document.querySelectorAll('.answer')
+const questionEl = document.getElementById('image')
+const a_text = document.getElementById('a_text')
+const b_text = document.getElementById('b_text')
+const c_text = document.getElementById('c_text')
+const d_text = document.getElementById('d_text')
+const submitBtn = document.getElementById('submit')
+
+
+let currentQuiz = 0
+let score = 0
+
+loadQuiz()
+
+function loadQuiz() {
+
+    deselectAnswers()
+
+    const currentQuizData = quizData[currentQuiz]
+
+    questionEl.src = currentQuizData.image
+    a_text.innerText = currentQuizData.a
+    b_text.innerText = currentQuizData.b
+    c_text.innerText = currentQuizData.c
+    d_text.innerText = currentQuizData.d
+}
+
+function deselectAnswers() {
+    answerEls.forEach(answerEl => answerEl.checked = false)
+}
+
+function getSelected() {
+    let answer
+    answerEls.forEach(answerEl => {
+        if(answerEl.checked) {
+            answer = answerEl.id
+        }
+    })
+    return answer
+}
+
+
+submitBtn.addEventListener('click', () => {
+    const answer = getSelected()
+    if(answer) {
+       if(answer === quizData[currentQuiz].correct) {
+           score++
+       }
+
+       currentQuiz++
+
+       if(currentQuiz < quizData.length) {
+           loadQuiz()
+       } else {
+           quiz.innerHTML = `
+           <h2>You answered ${score}/${quizData.length} images correctly</h2>
+
+           <button onclick="location.Reload();" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+            <i class="material-icons">done</i> Submit
+            </button>
+           `
+       }
+    }
+})
+</script>
