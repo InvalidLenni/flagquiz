@@ -19,11 +19,19 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: browsers
+    id: year
     attributes:
-      label: Used time of the flag
+      label: When was the flag used?
       multiple: true
       options:
+        - 10 BC - 0
+        - 0 - 300
+        - 300 - 900
+        - 900 - 1025
+        - 1025 - 1200
+        - 1200 - 1415
+        - 1415 - 1655
+        - 1655 - 1755
         - 1755 - 1845
         - 1845 - 1915
         - 1915 - 1945
