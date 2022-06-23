@@ -1,0 +1,36 @@
+name: Flag Request
+description: File a flag request
+title: "[Flag Request]: "
+labels: ["bug", "triage"]
+assignees:
+  - invalidlenni
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this flag request!
+  - type: textarea
+    id: which-flag
+    attributes:
+      label: Which flag should be added?
+      description: That we know if the flag was already added in the next update or not.
+      placeholder: Tell us your flag!
+      value: "Soviet Union "
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Used time of the flag
+      multiple: true
+      options:
+        - 1755 - 1845
+        - 1845 - 1915
+        - 1915 - 1945
+        - 1945 - 2000
+        - 2000 - 2022
+  - type: textarea
+    id: link
+    attributes:
+      label: Image URL
+      description: Please copy and paste an url of the flag.
